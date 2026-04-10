@@ -1,0 +1,88 @@
+import type { Dog } from './types';
+
+export const dogs: Dog[] = [
+  {
+    id: 'dog-01',
+    name: 'Biscuit',
+    breed: 'Golden Retriever',
+    emoji: '🐶',
+    description: 'Always brings a toy to the park — sometimes two.',
+  },
+  {
+    id: 'dog-02',
+    name: 'Mochi',
+    breed: 'Shiba Inu',
+    emoji: '🦊',
+    description: 'Elegant, curious, and secretly loves puddles.',
+  },
+  {
+    id: 'dog-03',
+    name: 'Pepper',
+    breed: 'Dalmatian',
+    emoji: '⚫',
+    description: 'Spots everywhere, energy for days.',
+  },
+  {
+    id: 'dog-04',
+    name: 'Daisy',
+    breed: 'Cavapoo',
+    emoji: '🌸',
+    description: "The pack's official greeter and cuddle champion.",
+  },
+  {
+    id: 'dog-05',
+    name: 'Bruno',
+    breed: 'French Bulldog',
+    emoji: '🐷',
+    description: 'Short legs, big personality, zero apologies.',
+  },
+  {
+    id: 'dog-06',
+    name: 'Luna',
+    breed: 'Border Collie',
+    emoji: '🌙',
+    description: 'Herds the other dogs. Voluntarily.',
+  },
+  {
+    id: 'dog-07',
+    name: 'Archie',
+    breed: 'Labrador',
+    emoji: '🟡',
+    description: 'Will befriend any human within a 10-metre radius.',
+  },
+  {
+    id: 'dog-08',
+    name: 'Coco',
+    breed: 'Poodle',
+    emoji: '🍫',
+    description: 'The brains of the operation.',
+  },
+  {
+    id: 'dog-09',
+    name: 'Max',
+    breed: 'German Shepherd',
+    emoji: '🐺',
+    description: 'Takes walkies very seriously.',
+  },
+  {
+    id: 'dog-10',
+    name: 'Bella',
+    breed: 'Cocker Spaniel',
+    emoji: '🎀',
+    description: 'Floppy ears, floppy heart.',
+  },
+  {
+    id: 'dog-11',
+    name: 'Finn',
+    breed: 'Whippet',
+    emoji: '⚡',
+    description: 'Fastest dog in the pack by a significant margin.',
+  },
+  {
+    id: 'dog-12',
+    name: 'Rosie',
+    breed: 'Jack Russell',
+    emoji: '🌹',
+    description: 'Small dog, enormous ambitions.',
+  },
+];

@@ -17,8 +17,8 @@
 
 **Purpose**: Establish shared foundation — theme and shared type definitions.
 
-- [ ] T001 Configure pastel theme tokens and base styles in `app/globals.css` — add `@theme inline` block with `--color-blush`, `--color-lavender`, `--color-mint`, `--color-peach`, `--color-sky`, `--color-cream`, `--color-bark`, `--color-paw` CSS variables; set `background` to `cream`, `color` to `bark`; remove default Next.js boilerplate styles
-- [ ] T002 [P] Create shared TypeScript interfaces in `data/types.ts` — define and export `Service`, `Dog`, and `Credential` interfaces exactly as specified in `specs/001-dog-walker-website/data-model.md`
+- [x] T001 Configure pastel theme tokens and base styles in `app/globals.css` — add `@theme inline` block with `--color-blush`, `--color-lavender`, `--color-mint`, `--color-peach`, `--color-sky`, `--color-cream`, `--color-bark`, `--color-paw` CSS variables; set `background` to `cream`, `color` to `bark`; remove default Next.js boilerplate styles
+- [x] T002 [P] Create shared TypeScript interfaces in `data/types.ts` — define and export `Service`, `Dog`, and `Credential` interfaces exactly as specified in `specs/001-dog-walker-website/data-model.md`
 
 ---
 
@@ -28,9 +28,9 @@
 
 **⚠️ CRITICAL**: All user story phases depend on this phase completing first.
 
-- [ ] T003 [P] Create `components/layout/NavBar.tsx` — accessible `<nav aria-label="Main navigation">` with a `<ul>` of `<li><Link>` items to Home (`/`), Services (`/services`), About (`/about`), Pack (`/pack`); style with Tailwind using pastel theme tokens; active link highlight using `usePathname`; mark as `'use client'` because it uses `usePathname`
-- [ ] T004 [P] Create `components/layout/Footer.tsx` — simple `<footer>` with business name placeholder, short tagline, and copyright year; styled with `bg-bark text-cream` for contrast
-- [ ] T005 Update `app/layout.tsx` — add skip-to-content anchor (`<a href="#main-content">` visually hidden, visible on focus), import and render `NavBar` above and `Footer` below `<main id="main-content">`; update `metadata.title` and `metadata.description` with dog walker business placeholders
+- [x] T003 [P] Create `components/layout/NavBar.tsx` — accessible `<nav aria-label="Main navigation">` with a `<ul>` of `<li><Link>` items to Home (`/`), Services (`/services`), About (`/about`), Pack (`/pack`); style with Tailwind using pastel theme tokens; active link highlight using `usePathname`; mark as `'use client'` because it uses `usePathname`
+- [x] T004 [P] Create `components/layout/Footer.tsx` — simple `<footer>` with business name placeholder, short tagline, and copyright year; styled with `bg-bark text-cream` for contrast
+- [x] T005 Update `app/layout.tsx` — add skip-to-content anchor (`<a href="#main-content">` visually hidden, visible on focus), import and render `NavBar` above and `Footer` below `<main id="main-content">`; update `metadata.title` and `metadata.description` with dog walker business placeholders
 
 **Checkpoint**: Run `npm run dev` — verify NavBar and Footer appear on all routes at `http://localhost:3000`
 
@@ -44,9 +44,9 @@
 
 ### Implementation
 
-- [ ] T006 [P] [US1] Create `data/services.ts` — define and export `services: Service[]` with exactly 3 entries: `{ id: 'solo-walk', name: 'Solo Walk', description: '...', price: '$25 per walk', icon: '🐕' }`, `{ id: 'group-walk', name: 'Group Walk', description: '...', price: '$18 per walk', icon: '🐕‍🦺' }`, `{ id: 'daycare', name: 'Daycare', description: '...', price: '$40 per day', icon: '🏠' }`; import `Service` from `data/types.ts`
-- [ ] T007 [P] [US1] Create `components/services/ServiceCard.tsx` — accept `service: Service` prop; render an `<article>` with icon, name as `<h2>`, description, and price in a visually distinct badge; styled with Tailwind pastel theme (e.g., `bg-blush` card background); include `aria-label` on the article
-- [ ] T008 [US1] Create `app/services/page.tsx` — import `services` from `data/services.ts` and `ServiceCard`; render a page with `<h1>Our Services</h1>` and a `<section>` grid (`grid grid-cols-1 sm:grid-cols-3 gap-6`); map services to `<ServiceCard key={service.id} service={service} />`; this is a Server Component (no `'use client'`)
+- [x] T006 [P] [US1] Create `data/services.ts` — define and export `services: Service[]` with exactly 3 entries: `{ id: 'solo-walk', name: 'Solo Walk', description: '...', price: '$25 per walk', icon: '🐕' }`, `{ id: 'group-walk', name: 'Group Walk', description: '...', price: '$18 per walk', icon: '🐕‍🦺' }`, `{ id: 'daycare', name: 'Daycare', description: '...', price: '$40 per day', icon: '🏠' }`; import `Service` from `data/types.ts`
+- [x] T007 [P] [US1] Create `components/services/ServiceCard.tsx` — accept `service: Service` prop; render an `<article>` with icon, name as `<h2>`, description, and price in a visually distinct badge; styled with Tailwind pastel theme (e.g., `bg-blush` card background); include `aria-label` on the article
+- [x] T008 [US1] Create `app/services/page.tsx` — import `services` from `data/services.ts` and `ServiceCard`; render a page with `<h1>Our Services</h1>` and a `<section>` grid (`grid grid-cols-1 sm:grid-cols-3 gap-6`); map services to `<ServiceCard key={service.id} service={service} />`; this is a Server Component (no `'use client'`)
 
 **Checkpoint**: `npm run dev` — visit `/services`, confirm 3 cards with names, descriptions, prices visible. Run `npx tsc --noEmit` — zero errors.
 
@@ -60,8 +60,8 @@
 
 ### Implementation
 
-- [ ] T009 [P] [US2] Create `components/about/CredentialCard.tsx` — accept `credential: Credential` prop; render an `<article>` with a type badge (`insurance` vs `certification` styled differently — e.g., `bg-mint` for insurance, `bg-lavender` for certification), title as `<h2>`, description, and optional issuer; import `Credential` from `data/types.ts`
-- [ ] T010 [US2] Create `app/about/page.tsx` — define a typed `credentials: Credential[]` constant inline with mock data (1 insurance entry + 2 certification entries as specified in `specs/001-dog-walker-website/data-model.md`); import `CredentialCard`; render `<h1>About Us</h1>`, a brief bio paragraph (placeholder text), and a `<section>` listing all credentials via `<CredentialCard>`; Server Component
+- [x] T009 [P] [US2] Create `components/about/CredentialCard.tsx` — accept `credential: Credential` prop; render an `<article>` with a type badge (`insurance` vs `certification` styled differently — e.g., `bg-mint` for insurance, `bg-lavender` for certification), title as `<h2>`, description, and optional issuer; import `Credential` from `data/types.ts`
+- [x] T010 [US2] Create `app/about/page.tsx` — define a typed `credentials: Credential[]` constant inline with mock data (1 insurance entry + 2 certification entries as specified in `specs/001-dog-walker-website/data-model.md`); import `CredentialCard`; render `<h1>About Us</h1>`, a brief bio paragraph (placeholder text), and a `<section>` listing all credentials via `<CredentialCard>`; Server Component
 
 **Checkpoint**: `npm run dev` — visit `/about`, confirm insurance section and certifications are visible. Run `npx tsc --noEmit` — zero errors.
 
@@ -75,9 +75,9 @@
 
 ### Implementation
 
-- [ ] T011 [P] [US3] Create `data/dogs.ts` — define and export `dogs: Dog[]` with exactly 12 entries; each entry has `id`, `name`, `breed`, `emoji`, and optional `description`; use names: Biscuit, Mochi, Pepper, Daisy, Bruno, Luna, Archie, Coco, Max, Bella, Finn, Rosie; assign varied breeds and emoji; import `Dog` from `data/types.ts`
-- [ ] T012 [P] [US3] Create `components/pack/DogCard.tsx` — accept `dog: Dog` prop; render an `<article aria-label="{name} — {breed}">` with a large emoji avatar, name as `<h2>`, breed, and optional description; styled with Tailwind (e.g., `bg-peach` card background, rounded corners, shadow); import `Dog` from `data/types.ts`
-- [ ] T013 [US3] Create `app/pack/page.tsx` — import `dogs` from `data/dogs.ts` and `DogCard`; render `<h1>The Pack</h1>` with a brief intro paragraph; render a responsive grid (`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4`); map all 12 dogs to `<DogCard key={dog.id} dog={dog} />`; Server Component
+- [x] T011 [P] [US3] Create `data/dogs.ts` — define and export `dogs: Dog[]` with exactly 12 entries; each entry has `id`, `name`, `breed`, `emoji`, and optional `description`; use names: Biscuit, Mochi, Pepper, Daisy, Bruno, Luna, Archie, Coco, Max, Bella, Finn, Rosie; assign varied breeds and emoji; import `Dog` from `data/types.ts`
+- [x] T012 [P] [US3] Create `components/pack/DogCard.tsx` — accept `dog: Dog` prop; render an `<article aria-label="{name} — {breed}">` with a large emoji avatar, name as `<h2>`, breed, and optional description; styled with Tailwind (e.g., `bg-peach` card background, rounded corners, shadow); import `Dog` from `data/types.ts`
+- [x] T013 [US3] Create `app/pack/page.tsx` — import `dogs` from `data/dogs.ts` and `DogCard`; render `<h1>The Pack</h1>` with a brief intro paragraph; render a responsive grid (`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4`); map all 12 dogs to `<DogCard key={dog.id} dog={dog} />`; Server Component
 
 **Checkpoint**: `npm run dev` — visit `/pack`, manually count: exactly 12 cards visible. Run `npx tsc --noEmit` — zero errors.
 
@@ -91,8 +91,8 @@
 
 ### Implementation
 
-- [ ] T014 [P] [US4] Create `components/home/Hero.tsx` — render a full-width hero section with a headline (business name placeholder), tagline, and three CTA `<Link>` buttons to `/services`, `/about`, `/pack`; styled with `bg-cream`, large typography, and pastel accent buttons; accessible button text (`View Our Services`, `Meet the Team`, `Meet the Pack`)
-- [ ] T015 [US4] Update `app/page.tsx` — remove all default Next.js boilerplate content; import and render `Hero`; optionally add a brief "Why choose us" section below the hero with 2–3 short bullet points (placeholders); Server Component
+- [x] T014 [P] [US4] Create `components/home/Hero.tsx` — render a full-width hero section with a headline (business name placeholder), tagline, and three CTA `<Link>` buttons to `/services`, `/about`, `/pack`; styled with `bg-cream`, large typography, and pastel accent buttons; accessible button text (`View Our Services`, `Meet the Team`, `Meet the Pack`)
+- [x] T015 [US4] Update `app/page.tsx` — remove all default Next.js boilerplate content; import and render `Hero`; optionally add a brief "Why choose us" section below the hero with 2–3 short bullet points (placeholders); Server Component
 
 **Checkpoint**: `npm run dev` — visit `/`, confirm hero is visible, all three CTA links navigate correctly. Run `npx tsc --noEmit` — zero errors.
 
@@ -102,9 +102,9 @@
 
 **Purpose**: Accessibility hardening, responsive verification, and quality gate sign-off.
 
-- [ ] T016 [P] Accessibility hardening pass — review and fix: (1) add `skip-to-content` focus visible styles in `app/globals.css`; (2) verify each page has exactly one `<h1>` and cards use `<h2>`; (3) confirm all emoji spans use `role="img" aria-label="..."` in `DogCard.tsx`, `ServiceCard.tsx`, `Hero.tsx`; (4) verify NavBar `usePathname` active link adds `aria-current="page"`
-- [ ] T017 [P] Mobile responsiveness review — open DevTools at 375px and verify: (1) NavBar links remain visible and tappable; (2) Services grid stacks to single column; (3) Pack grid shows 2 columns; (4) Hero text is readable; fix any overflow or clipping issues in the relevant component files
-- [ ] T018 Quality gates sign-off — run `npm run lint`, `npx tsc --noEmit`, and `npm run build` from repo root; fix every reported error before marking complete; confirm build output in `.next/` exists without errors
+- [x] T016 [P] Accessibility hardening pass — review and fix: (1) add `skip-to-content` focus visible styles in `app/globals.css`; (2) verify each page has exactly one `<h1>` and cards use `<h2>`; (3) confirm all emoji spans use `role="img" aria-label="..."` in `DogCard.tsx`, `ServiceCard.tsx`, `Hero.tsx`; (4) verify NavBar `usePathname` active link adds `aria-current="page"`
+- [x] T017 [P] Mobile responsiveness review — open DevTools at 375px and verify: (1) NavBar links remain visible and tappable; (2) Services grid stacks to single column; (3) Pack grid shows 2 columns; (4) Hero text is readable; fix any overflow or clipping issues in the relevant component files
+- [x] T018 Quality gates sign-off — run `npm run lint`, `npx tsc --noEmit`, and `npm run build` from repo root; fix every reported error before marking complete; confirm build output in `.next/` exists without errors
 
 **Checkpoint**: All quality gates pass. Visit all 4 pages at 375px and 1280px — all content readable, navigation functional.
 
